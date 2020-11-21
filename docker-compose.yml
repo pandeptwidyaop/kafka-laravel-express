@@ -1,5 +1,14 @@
 version: "3"
 services:
   laravel:
+    build:
+      context: .
+      dockerfile: laravel.docker
+    volumes:
+      - ./laravel:/var/www/html
+    ports:
+      - 9000:4000
   express:
-  kafka:
+    build:
+      context: .
+      dockerfile: express.docker
