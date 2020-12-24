@@ -20,3 +20,7 @@ Route::get('/', function () {
 Route::get('/ini', function () {
     phpinfo();
 });
+
+Route::get('/test', function () {
+    $kafka = new Rdkafka\Conf();
+});
