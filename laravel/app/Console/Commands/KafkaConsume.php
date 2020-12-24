@@ -64,7 +64,7 @@ class KafkaConsume extends Command
         $conf->set('group.id', 'myConsumerGroup');
 
         // Initial list of Kafka brokers
-        $conf->set('metadata.broker.list', 'kafka:9092');
+        $conf->set('metadata.broker.list', 'kafka:9092,kafka2:9092');
 
         // Set where to start consuming messages when there is no initial offset in
         // offset store or the desired offset is out of range.
@@ -80,7 +80,7 @@ class KafkaConsume extends Command
         echo "quickly re-joining the group after leaving it.)\n";
 
         while (true) {
-            $message = $consumer->consume(120 * 1000);
+            $message = $consumer->consume(5 * 1000);
             switch ($message->err) {
                 case RD_KAFKA_RESP_ERR_NO_ERROR:
                     var_dump($message);
