@@ -16,6 +16,14 @@ RUN cd /tmp  \
     && docker-php-ext-enable rdkafka \
     && rm -rf /tmp/librdkafka
 
+# RUN cd /tmp \
+#     && git clone https://github.com/arnaud-lb/php-rdkafka.git \
+#     && cd php-rdkafka \
+#     && phpize \
+#     && ./configure \
+#     && make all -j 5 \
+#     && make install
+
 COPY docker/nginx.conf /etc/nginx/nginx.conf
 COPY docker/vhost.conf /etc/nginx/conf.d/default.conf
 
