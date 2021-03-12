@@ -34,3 +34,11 @@ services:
       - ./laravel:/var/www/html
     ports:
       - 9000:4000
+  express:
+    build:
+      context: .
+      dockerfile: express.docker
+    volumes:
+      - ./express:/app
+    ports:
+      - 9001:3000
